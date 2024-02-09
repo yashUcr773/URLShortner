@@ -1,13 +1,19 @@
-import { useState } from 'react'
 import './App.css'
+import { Header } from './components/Header'
+import { Main } from './components/Main'
+import { Footer } from './components/Footer'
+import { RecoilRoot } from 'recoil'
 
 function App() {
 
-    return (
-        <h1 className="text-3xl font-bold underline">
-            Hello world!
-        </h1>
-    )
+    return <>
+        <RecoilRoot>
+            <Header />
+            <Main />
+            <Footer />
+        </RecoilRoot>
+    </>
+
 }
 
 export default App
