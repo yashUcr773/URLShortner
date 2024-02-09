@@ -32,7 +32,7 @@ app.use("/:shortenedURL", async (req, res) => {
 });
 app.use("/", (req, res) => {
     res.send(
-        "Express app hosted on vercel. Code at https://github.com/yashUcr773/URLShortner"
+        "Express app hosted on vercel. Code at https://github.com/yashUcr773/URLShortner/tree/master/backend"
     );
 });
 app.listen(PORT, () => console.log("server started on port", PORT));
