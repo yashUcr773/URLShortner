@@ -7,3 +7,8 @@ export const URLSatom = atom({
         completeURL: "",
     },
 });
+
+export const flipAtom = atom({
+    key: 'flipAtom',
+    default: false
+})

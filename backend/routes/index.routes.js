@@ -48,24 +48,4 @@ router.post("/shorten", async (req, res) => {
     }
 });
 
-router.get("/:shortenedURL", async (req, res) => {
-    try {
-        const shortenedURL = req.params.shortenedURL;
-
-        const url = await ShortenedURLDB.findOne(
-            { shortenedURL },
-            { completeURL: 1, shortenedURL: 1, _id: 0 }
-        );
-
-        return res.status(200).json({
-            url,
-        });
-    } catch (e) {
-        console.log(e);
-        return res.status(500).json({
-            message: "Some error occured. Try Again Later",
-        });
-    }
-});
-
 module.exports = router;
