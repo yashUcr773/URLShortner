@@ -27,8 +27,8 @@ export function FormComponent({ formLabel, placeHolder, formValue, formSetter, r
             {formLabel == 'ShortenedURL' ?
                 <div className="flex flex-row gap-2 p-2">
                     <Tooltip id="my-tooltip" />
-                    <button onClick={(e) => { copyLink() }} className="border border-black p-2 rounded-lg bg-gray-200"><a data-tooltip-id="my-tooltip" data-tooltip-content={copy ? 'Copy' : 'Copied'}><Copy /></a></button>
-                    <button onClick={(e) => { launchLink() }} className="border border-black p-2 rounded-lg bg-gray-200"> <a data-tooltip-id="my-tooltip" data-tooltip-content='Launch Link'><Launch /></a></button>
+                    <button onClick={() => { copyLink() }} className="border border-black p-2 rounded-lg bg-gray-200"><a data-tooltip-id="my-tooltip" data-tooltip-content={copy ? 'Copy' : 'Copied'}><Copy /></a></button>
+                    <button onClick={() => { launchLink() }} className="border border-black p-2 rounded-lg bg-gray-200"> <a data-tooltip-id="my-tooltip" data-tooltip-content='Launch Link'><Launch /></a></button>
                 </div> :
                 null}
         </div>

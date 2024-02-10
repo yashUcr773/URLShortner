@@ -2,8 +2,6 @@ import { FormComponent } from "./FromComponent"
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { URLSatom, flipAtom } from "../store/atom/URLS"
 import { CONSTANTS } from "../../config/CONSTANTS"
-import { Copy } from "../assets/Copy"
-import { Launch } from "../assets/Launch"
 
 export function ResultComponent() {
 
