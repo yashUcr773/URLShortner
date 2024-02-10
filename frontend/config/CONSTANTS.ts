@@ -1,4 +1,4 @@
 export const CONSTANTS = {
-    APIBASEURL: "https://shtr.dev/api/v1",
-    PRODURL: "https://shtr.dev/"
+    APIBASEURL: "https://www.shtr.dev/api/v1",
+    PRODURL: "https://www.shtr.dev/"
 };

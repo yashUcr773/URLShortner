@@ -21,7 +21,7 @@ app.use("/:shortenedURL", async (req, res) => {
         if (url) {
             return res.redirect(url.completeURL);
         } else {
-            return res.redirect("http://localhost:5173/notfound");
+            return res.redirect("https://app.shtr.dev/notfound");
         }
     } catch (e) {
         console.log(e);
