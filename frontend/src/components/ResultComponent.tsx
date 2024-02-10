@@ -8,7 +8,7 @@ export function ResultComponent() {
     const urls = useRecoilValue(URLSatom)
     const setFlip = useSetRecoilState(flipAtom)
 
-    return <div className="m-8 form-container w-full sm:w-[500px] bg-emerald-200 border border-black rounded-lg shadow-lg flex flex-col gap-8 p-8 items-center justify-center">
+    return <div className="m-8 form-container w-11/12 sm:w-[500px] bg-emerald-200 border border-black rounded-lg shadow-lg flex flex-col gap-8 p-8 items-center justify-center">
         <FormComponent formLabel={'GeneratedURL'} formValue={urls.completeURL} readonly={true}></FormComponent>
         <FormComponent formLabel={'ShortenedURL'} formValue={CONSTANTS.PRODURL + urls.shortenedURL} readonly={true}></FormComponent>
 

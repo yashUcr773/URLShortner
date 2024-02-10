@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
 const { ShortenedURLDB } = require("./database/database");
+const { CONSTANTS } = require("./config/constants.config");
 const PORT = 3000;
 
 app.use(cors());
@@ -21,7 +22,7 @@ app.use("/:shortenedURL", async (req, res) => {
         if (url) {
             return res.redirect(url.completeURL);
         } else {
-            return res.redirect("https://app.shtr.dev/notfound");
+            return res.redirect(CONSTANTS.NOTFOUND);
         }
     } catch (e) {
         console.log(e);
@@ -31,6 +32,6 @@ app.use("/:shortenedURL", async (req, res) => {
     }
 });
 app.use("/", (req, res) => {
-    return res.redirect("https://app.shtr.dev/");
+    return res.redirect(CONSTANTS.FEURL);
 });
 app.listen(PORT, () => console.log("server started on port", PORT));

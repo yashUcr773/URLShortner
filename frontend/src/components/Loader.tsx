@@ -1,8 +1,4 @@
-export function Loader({ fullpage }: any) {
-    
-    if (fullpage) {
-        console.log('update')
-    }
+export function Loader() {
 
     return (
         <div

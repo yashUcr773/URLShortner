@@ -10,15 +10,15 @@ function App() {
 
     return <>
         <RecoilRoot>
-            <Header />
             <BrowserRouter>
+                <Header />
                 <Routes>
                     <Route path="/" element={<Main />}></Route>
                     <Route path="/notfound" element={<NotFound />}></Route>
                     <Route path='*' element={<Navigate to="/" replace />}></Route>
                 </Routes>
+                <Footer />
             </BrowserRouter>
-            <Footer />
         </RecoilRoot>
     </>
 

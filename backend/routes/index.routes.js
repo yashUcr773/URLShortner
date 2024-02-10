@@ -5,7 +5,6 @@ const { URL } = require("../validation/URL.validation");
 const { ShortenedURLDB } = require("../database/database");
 
 router.post("/shorten", async (req, res) => {
-    console.log("here");
     const shortenedURL = req.body.shortenedURL;
     const completeURL = req.body.completeURL;
     try {
@@ -31,8 +30,6 @@ router.post("/shorten", async (req, res) => {
             shortenedURL,
             completeURL,
         });
-
-        console.log(url);
 
         return res.status(200).json({
             message: "Success",
