@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useSetRecoilState } from "recoil"
 import { flipAtom } from "../store/atom/URLS"
-import { HeaderLinks } from "./HeaderLinks"
 import { useEffect, useState } from "react"
 
 export function Header() {
