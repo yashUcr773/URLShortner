@@ -1,14 +1,17 @@
-import { useRecoilValue } from "recoil";
-import { ResultComponent } from "./ResultComponent";
-import { ShortnerComponent } from "./ShortnerComponent";
-import { flipAtom } from "../store/atom/URLS";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Layout } from "./Layout";
+import { NotFound } from "./NotFound";
+import { Dashboard } from "./Dashboard";
 
 export function Main() {
 
-    const flip = useRecoilValue(flipAtom)
-
-    return <main style={{ minHeight: 'calc(100vh)' }} className="bg-blue-300 flex flex-col items-center justify-center">
-        {!flip ? <ShortnerComponent></ShortnerComponent>
-            : <ResultComponent></ResultComponent>}
-    </main>
+    return (
+        <Routes>
+            <Route path="/" element={<Layout />}>
+                <Route path="/" element={<Dashboard />}></Route>
+                <Route path="/notfound" element={<NotFound />}></Route>
+                <Route path='*' element={<Navigate to="/notfound" replace />}></Route>
+            </Route>
+        </Routes>
+    )
 }

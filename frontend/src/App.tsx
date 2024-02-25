@@ -1,27 +1,16 @@
 import './App.css'
-import { Header } from './components/Header'
 import { Main } from './components/Main'
-import { Footer } from './components/Footer'
 import { RecoilRoot } from 'recoil'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import { NotFound } from './components/NotFound'
+import { BrowserRouter } from 'react-router-dom'
 
-function App() {
-
-    return <>
-        <RecoilRoot>
+export default function App() {
+    return (
+        <>
             <BrowserRouter>
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Main />}></Route>
-                    <Route path="/notfound" element={<NotFound />}></Route>
-                    <Route path='*' element={<Navigate to="/" replace />}></Route>
-                </Routes>
-                <Footer />
+                <RecoilRoot>
+                    <Main></Main>
+                </RecoilRoot>
             </BrowserRouter>
-        </RecoilRoot>
-    </>
-
+        </>
+    )
 }
-
-export default App

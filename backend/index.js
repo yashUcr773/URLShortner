@@ -1,14 +1,24 @@
+require("dotenv").config();
 const express = require("express");
-const rootRouter = require("./routes/index.routes");
-const cors = require("cors");
 const app = express();
-const bodyParser = require("body-parser");
+const cors = require("cors");
+const PORT = process.env.PORT || 3000;
+const cookieParser = require("cookie-parser");
+const rootRouter = require("./routes/index.routes");
 const { ShortenedURLDB } = require("./database/database");
 const { CONSTANTS } = require("./config/constants.config");
-const PORT = 3000;
 
+// Cross Origin Resource Sharing
 app.use(cors());
-app.use(bodyParser.json());
+// built-in middleware to handle urlencoded form data
+app.use(express.urlencoded({ extended: false }));
+
+// built-in middleware for json
+app.use(express.json());
+
+// to parse cookies sent with request
+app.use(cookieParser());
+
 app.use("/api/v1", rootRouter);
 app.use("/:shortenedURL", async (req, res) => {
     try {

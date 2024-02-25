@@ -7,3 +7,29 @@ body {
 * {
     box-sizing: border-box;
 }
+
+.scene {
+    display: inline-block;
+    margin: 40px 0;
+    perspective: 1000px;
+}
+
+.card {
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 0.5s;
+}
+
+.card.is-flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+
+.card-face {
+    position: absolute;
+    backface-visibility: hidden;
+}

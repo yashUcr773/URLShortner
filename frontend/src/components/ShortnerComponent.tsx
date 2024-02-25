@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { CONSTANTS } from '../../config/CONSTANTS.js'
 import { Loader } from "./Loader.js"
 import { FormComponent } from "./FromComponent.js"
-import { useSetRecoilState } from "recoil"
+import { useRecoilState, useSetRecoilState } from "recoil"
 import { URLSatom, flipAtom } from '../store/atom/URLS.js'
 
 export function ShortnerComponent() {
@@ -14,7 +14,7 @@ export function ShortnerComponent() {
     const [apiFeedbackSuccess, setApiFeedbackSuccess] = useState(false)
     const [networkCallProgress, setNetworkCallProgress] = useState(false)
     const setURLS = useSetRecoilState(URLSatom)
-    const setFlip = useSetRecoilState(flipAtom)
+    const [flip, setFlip] = useRecoilState(flipAtom)
 
     useEffect(() => {
 
@@ -30,7 +30,10 @@ export function ShortnerComponent() {
 
         }
         setAlias(generateRandomAlias(6))
-    }, [])
+        setCompleteURL("")
+        setApiFeedback("")
+        setNetworkCallProgress(false)
+    }, [flip])
 
     async function generateShortURL() {
         try {
@@ -54,12 +57,24 @@ export function ShortnerComponent() {
         }
     }
 
-    return <div className="m-16 form-container w-11/12 sm:w-[500px] bg-emerald-200 border border-black rounded-lg shadow-lg flex flex-col gap-8 p-8 items-center justify-center">
-        <FormComponent formLabel={'Complete URL'} placeHolder={'https://yashaggarwal.dev'} formValue={completeURL} formSetter={setCompleteURL}></FormComponent>
+    return <div className="w-full form-container bg-white dark:bg-gray-800 rounded-lg shadow-lg flex flex-col gap-4 p-8 items-center justify-center">
+        <FormComponent formLabel={'Complete URL (starting with https://)'} placeHolder={'https://yashaggarwal.dev'} formValue={completeURL} formSetter={setCompleteURL}></FormComponent>
         <FormComponent formLabel={'Alias  (' + CONSTANTS.PRODURL + ')'} placeHolder={alias} formValue={alias} formSetter={setAlias}></FormComponent>
-        <span className={`network-feedback mt-4 font-bold text-xl ${apiFeedbackSuccess ? 'text-green-600' : 'text-red-500'}`}>{apiFeedback}</span>
-        <button onClick={() => { generateShortURL() }} className="border border-black p-4 w-full bg-black text-white  text-lg rounded-lg  flex flex-row items-center justify-center h-16 gap-4">Generate {networkCallProgress ? <Loader></Loader> : null}</button>
+        {
+            apiFeedback ?
+                apiFeedbackSuccess ?
+                    <div className="text-sm text-green-800 rounded-lg dark:text-green-400" role="alert">
+                        {apiFeedback}
+                    </div> :
+                    <div className="text-sm text-red-800 rounded-lg dark:text-red-400" role="alert">
+                        {apiFeedback}
+                    </div>
+                : null}
+        <button
+            onClick={() => { generateShortURL() }}
+            className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-20 py-4 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex flex-row items-center justify-center gap-2">
+            Generate {networkCallProgress ? <Loader></Loader> : null}
+        </button>
     </div>
 
 }
-
