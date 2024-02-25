@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { CONSTANTS } = require("../config/constants.config");
 
-mongoose.connect(CONSTANTS.MONGODBCONNECTION + "urlShortner");
+mongoose.connect(CONSTANTS.MONGO_DB_CONNECTION + "urlShortner");
 
 const ShortenedURLsSchema = new mongoose.Schema({
     shortenedURL: {
