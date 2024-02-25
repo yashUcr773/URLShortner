@@ -7,7 +7,7 @@ export function Footer() {
             <div className="w-full max-w-screen-xl mx-auto p-2">
                 <div className="flex items-center justify-center">
                     <a className="flex items-center mb-0 space-x-3">
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap text-primary-500">SHTR..</span>
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap text-primary-500">SHTR.</span>
                     </a>
                 </div>
                 <div className="relative flex flex-row items-center justify-center">
