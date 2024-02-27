@@ -57,7 +57,7 @@ export function ShortnerComponent() {
         }
     }
 
-    return <div className="w-full form-container bg-white dark:bg-gray-800 rounded-lg shadow-lg flex flex-col gap-4 p-8 items-center justify-center">
+    return <div className="w-full form-container bg-white dark:bg-gray-800 rounded-lg shadow-lg flex flex-col gap-4 p-8 items-center justify-center dark:border-primary-500 border border-primary-500">
         <FormComponent formLabel={'Complete URL (starting with https://)'} placeHolder={'https://yashaggarwal.dev'} formValue={completeURL} formSetter={setCompleteURL}></FormComponent>
         <FormComponent formLabel={'Alias  (' + CONSTANTS.PRODURL + ')'} placeHolder={alias} formValue={alias} formSetter={setAlias}></FormComponent>
         {
