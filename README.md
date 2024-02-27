@@ -38,3 +38,13 @@ Ensure to add the following environment variables in a `.env` file within the `b
 ## Attribution
 
 - Tailwind styles inspired from [Flowbite](https://flowbite.com/).
+
+## Planned Features
+- [x] Create a base app that takes in complete url and returns generated URL.
+- [x] Add pretty styles
+- [ ] Generate a QR code along with shortened URL
+- [ ] Allow users to create account and store history of generated urls
+- [ ] Expire generated URL to free up aliases
+- [ ] Provide analytics of how many times the url was redirected to.
+- [ ] Provide functionality to delete generated URLs
+- [ ] Add a share button to easily let people share genrated URLs
