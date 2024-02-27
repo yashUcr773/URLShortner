@@ -1,15 +1,24 @@
-require("dotenv").config();
+const { CONSTANTS } = require("./config/constants.config");
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const PORT = process.env.PORT || 3000;
+const PORT = CONSTANTS.PORT || 3000;
 const cookieParser = require("cookie-parser");
 const rootRouter = require("./routes/index.routes");
 const { ShortenedURLDB } = require("./database/database");
-const { CONSTANTS } = require("./config/constants.config");
+const corsOptions = require("./config/corsOptions");
 
-// Cross Origin Resource Sharing
-app.use(cors());
+// Cross-Origin Resource Sharing
+app.use((req, res, next) => {
+    if (req.path.startsWith("/api")) {
+        // Use CORS with options for other routes
+        cors(corsOptions)(req, res, next);
+    } else {
+        // Allow all origins for the root path
+        cors()(req, res, next);
+    }
+});
+
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }));
 
