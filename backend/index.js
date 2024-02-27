@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/v1", rootRouter);
+
 app.use("/:shortenedURL", async (req, res) => {
     try {
         const shortenedURL = req.params.shortenedURL;
@@ -41,7 +42,14 @@ app.use("/:shortenedURL", async (req, res) => {
         });
     }
 });
+
 app.use("/", (req, res) => {
     return res.redirect(CONSTANTS.FEURL);
 });
+
+// global router catcher
+app.all("*", (req, res) => {
+    return res.redirect(CONSTANTS.NOTFOUND);
+});
+
 app.listen(PORT, () => console.log("server started on port", PORT));
