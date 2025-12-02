@@ -24,7 +24,14 @@ A modern, beautiful Next.js application for URL shortening and QR code generatio
 - Feature cards showcasing stats
 - Clean, welcoming hero section
 
-### 2. Result / Success Page
+### 2. Features Overview
+**Route:** `/features`
+- Comprehensive features showcase
+- Feature cards with descriptions
+- Stats dashboard
+- CTA sections
+
+### 3. Result / Success Page
 **Route:** `/result`
 - Display of original URL
 - Shortened URL with copy button
@@ -33,7 +40,7 @@ A modern, beautiful Next.js application for URL shortening and QR code generatio
 - Analytics link
 - Actions to create new link or view dashboard
 
-### 3. Dashboard / My Links
+### 4. Dashboard / My Links
 **Route:** `/dashboard`
 - Overview stats cards (Total Links, Total Clicks, Monthly Stats, Active Links)
 - Search and filter functionality
@@ -45,7 +52,7 @@ A modern, beautiful Next.js application for URL shortening and QR code generatio
   - Action buttons (Copy, Stats, Edit, Delete)
 - Pagination
 
-### 4. Analytics Page
+### 5. Analytics Page
 **Route:** `/analytics`
 - Time period selector (24h, 7d, 30d, 90d, custom)
 - Key metrics cards (Total Clicks, Unique Visitors, Today)
@@ -56,7 +63,7 @@ A modern, beautiful Next.js application for URL shortening and QR code generatio
 - Browser statistics
 - Export and report generation options
 
-### 5. QR Code Generator
+### 6. QR Code Generator
 **Route:** `/qr-generator`
 - Multiple QR code types:
   - URL
@@ -73,7 +80,96 @@ A modern, beautiful Next.js application for URL shortening and QR code generatio
 - Multiple download formats (PNG, SVG, PDF, EPS)
 - Use cases section
 
-### 6. Settings Page
+### 7. Link-in-Bio Page Builder
+**Route:** `/bio-link`
+- Linktree-style landing page creator
+- Drag-and-drop link management
+- Profile customization:
+  - Avatar upload
+  - Display name and bio
+  - Custom page URL
+- Link management:
+  - Add/edit/delete links
+  - Enable/disable individual links
+  - Click tracking per link
+  - Reorder with drag handles
+- Appearance customization:
+  - Theme selection (Gradient, Dark, Light)
+  - Button styles (Rounded, Square, Sharp)
+  - Font choices
+- Social media icons toggle
+- Live mobile preview
+- Page analytics
+
+### 8. Bulk Operations
+**Route:** `/bulk`
+Two main sections:
+
+#### Import URLs
+- Manual text entry (1000+ URLs at once)
+- File upload support (CSV, TXT, XLS, XLSX)
+- CSV template download
+- Import options:
+  - Custom domain selection
+  - Alias generation strategy
+  - Default expiration
+  - Folder assignment
+  - Analytics toggle
+  - QR code generation
+- Preview before processing
+- Success/error reporting
+- Error details export
+
+#### Export URLs
+- Filter selection (All, By Folder, By Date, Selected)
+- Format options (CSV, JSON)
+- Analytics data inclusion levels
+- Export preview
+- Quick export presets (Last 7 Days, Top Performers, Expiring Soon)
+
+### 9. A/B Testing Dashboard
+**Route:** `/ab-testing`
+- Active tests monitoring
+- Test performance metrics:
+  - Total visitors
+  - Conversion rates
+  - Confidence levels
+  - Estimated time remaining
+- Variant comparison:
+  - Traffic distribution
+  - Click-through rates
+  - Conversion metrics
+  - Winner indication
+- Test controls:
+  - Pause/Resume
+  - Declare winner
+  - Stop test
+- Completed tests archive
+- Results analysis:
+  - Revenue impact
+  - Performance improvements
+  - Statistical confidence
+- Best practices guide
+
+### 10. Team Collaboration
+**Route:** `/team`
+- Team statistics dashboard
+- Member management:
+  - Search and filter members
+  - View member activity
+  - Last active tracking
+  - Links created count
+- Role-based access control:
+  - Owner (Full access)
+  - Admin (Team & link management)
+  - Editor (Create & edit links)
+  - Viewer (Read-only access)
+- Pending invitations management
+- Member invitation system
+- Activity status tracking
+- Role permissions matrix
+
+### 11. Settings Page
 **Route:** `/settings`
 
 Six comprehensive tabs:

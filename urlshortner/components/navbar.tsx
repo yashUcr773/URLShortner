@@ -27,18 +27,33 @@ export function Navbar() {
           </Link>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-gray-600 hover:text-purple-600 transition-colors">
+          <div className="hidden lg:flex items-center space-x-4">
+            <Link href="/" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
               Home
             </Link>
-            <Link href="/dashboard" className="text-gray-600 hover:text-purple-600 transition-colors">
-              My Links
+            <Link href="/features" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              Features
             </Link>
-            <Link href="/analytics" className="text-gray-600 hover:text-purple-600 transition-colors">
+            <Link href="/dashboard" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              Dashboard
+            </Link>
+            <Link href="/analytics" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
               Analytics
             </Link>
-            <Link href="/qr-generator" className="text-gray-600 hover:text-purple-600 transition-colors">
+            <Link href="/qr-generator" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
               QR Generator
+            </Link>
+            <Link href="/bio-link" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              Bio Link
+            </Link>
+            <Link href="/bulk" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              Bulk
+            </Link>
+            <Link href="/ab-testing" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              A/B Test
+            </Link>
+            <Link href="/team" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              Team
             </Link>
           </div>
 
