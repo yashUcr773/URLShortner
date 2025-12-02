@@ -17,7 +17,11 @@ import {
   Zap,
   TrendingUp,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Target,
+  Calendar,
+  Smartphone,
+  Folder
 } from "lucide-react";
 
 export default function FeaturesPage() {
@@ -28,7 +32,7 @@ export default function FeaturesPage() {
       icon: Link2,
       href: "/",
       color: "from-purple-600 to-blue-500",
-      features: ["Custom aliases", "Password protection", "Link expiration", "Analytics tracking"]
+      features: ["Custom aliases", "Password protection", "Link expiration", "UTM builder"]
     },
     {
       title: "QR Code Generator",
@@ -45,6 +49,50 @@ export default function FeaturesPage() {
       href: "/analytics",
       color: "from-green-600 to-emerald-500",
       features: ["Real-time tracking", "Geographic data", "Device breakdown", "Referrer analytics"]
+    },
+    {
+      title: "Link Organization",
+      description: "Organize your links with folders, favorites, and smart filters",
+      icon: Folder,
+      href: "/dashboard",
+      color: "from-yellow-600 to-amber-500",
+      features: ["Folder management", "Favorites", "Quick filters", "Search & sort"]
+    },
+    {
+      title: "Branded Links",
+      description: "Use your own custom domains to create branded short links",
+      icon: Globe,
+      href: "/branded",
+      color: "from-teal-600 to-cyan-500",
+      features: ["Custom domains", "SSL certificates", "DNS management", "Multiple domains"],
+      badge: "Pro"
+    },
+    {
+      title: "Link Scheduling",
+      description: "Schedule links to activate and deactivate at specific times",
+      icon: Calendar,
+      href: "/scheduling",
+      color: "from-indigo-600 to-purple-500",
+      features: ["Time-based activation", "Auto-deactivation", "Timezone support", "Email notifications"],
+      badge: "Pro"
+    },
+    {
+      title: "Retargeting Pixels",
+      description: "Add tracking pixels from Facebook, Google, TikTok, and more",
+      icon: Target,
+      href: "/pixels",
+      color: "from-pink-600 to-rose-500",
+      features: ["Facebook Pixel", "Google Ads", "TikTok Pixel", "LinkedIn Insight"],
+      badge: "Pro"
+    },
+    {
+      title: "Mobile Deep Linking",
+      description: "Create smart links that seamlessly open your mobile app",
+      icon: Smartphone,
+      href: "/deep-links",
+      color: "from-blue-600 to-indigo-500",
+      features: ["iOS deep links", "Android deep links", "Smart fallbacks", "App tracking"],
+      badge: "Pro"
     },
     {
       title: "Link-in-Bio Page",
@@ -79,15 +127,6 @@ export default function FeaturesPage() {
       href: "/team",
       color: "from-blue-600 to-indigo-500",
       features: ["Team workspace", "Role management", "Activity tracking", "Member invitations"],
-      badge: "Pro"
-    },
-    {
-      title: "Custom Domain",
-      description: "Use your own branded domain for shortened URLs",
-      icon: Globe,
-      href: "/settings",
-      color: "from-teal-600 to-cyan-500",
-      features: ["Custom domains", "SSL certificates", "DNS management", "Multiple domains"],
       badge: "Pro"
     },
     {

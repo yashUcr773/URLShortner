@@ -43,6 +43,18 @@ export function Navbar() {
             <Link href="/qr-generator" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
               QR Generator
             </Link>
+            <Link href="/branded" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              Branded
+            </Link>
+            <Link href="/scheduling" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              Scheduling
+            </Link>
+            <Link href="/pixels" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              Pixels
+            </Link>
+            <Link href="/deep-links" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
+              Deep Links
+            </Link>
             <Link href="/bio-link" className="text-gray-600 hover:text-purple-600 transition-colors text-sm">
               Bio Link
             </Link>

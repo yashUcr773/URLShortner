@@ -18,9 +18,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, Plus, Copy, BarChart3, Edit, Trash2, Eye, Lock, Calendar, ExternalLink } from "lucide-react";
+import { Search, Plus, Copy, BarChart3, Edit, Trash2, Eye, Lock, Calendar, ExternalLink, Folder, FolderPlus, ChevronRight, MoreVertical, Star } from "lucide-react";
 
 export default function DashboardPage() {
+  const folders = [
+    { id: 'all', name: 'All Links', count: 48, icon: '📁' },
+    { id: 'marketing', name: 'Marketing Campaigns', count: 12, icon: '📢' },
+    { id: 'social', name: 'Social Media', count: 8, icon: '👥' },
+    { id: 'products', name: 'Product Links', count: 15, icon: '🛍️' },
+    { id: 'blog', name: 'Blog Posts', count: 7, icon: '✍️' },
+    { id: 'favorites', name: 'Favorites', count: 6, icon: '⭐', special: true },
+  ];
+
   const links = [
     {
       id: 1,
@@ -30,7 +39,9 @@ export default function DashboardPage() {
       created: "Nov 28, 2025",
       expires: "Never",
       hasPassword: false,
-      status: "active"
+      status: "active",
+      folder: "blog",
+      isFavorite: true
     },
     {
       id: 2,
@@ -40,7 +51,9 @@ export default function DashboardPage() {
       created: "Nov 25, 2025",
       expires: "Dec 31, 2025",
       hasPassword: true,
-      status: "active"
+      status: "active",
+      folder: "marketing",
+      isFavorite: false
     },
     {
       id: 3,
@@ -50,7 +63,9 @@ export default function DashboardPage() {
       created: "Nov 20, 2025",
       expires: "Dec 20, 2025",
       hasPassword: false,
-      status: "active"
+      status: "active",
+      folder: "blog",
+      isFavorite: false
     },
     {
       id: 4,
@@ -60,7 +75,9 @@ export default function DashboardPage() {
       created: "Nov 15, 2025",
       expires: "Dec 15, 2025",
       hasPassword: false,
-      status: "expiring-soon"
+      status: "expiring-soon",
+      folder: "marketing",
+      isFavorite: true
     },
   ];
 
@@ -80,6 +97,64 @@ export default function DashboardPage() {
         </Link>
       </div>
 
+      {/* Main Content Area with Sidebar */}
+      <div className="flex gap-6">
+        {/* Sidebar - Folders */}
+        <div className="w-64 flex-shrink-0">
+          <Card className="p-4">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-semibold text-sm text-gray-700">FOLDERS</h3>
+              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                <FolderPlus className="h-4 w-4" />
+              </Button>
+            </div>
+            <div className="space-y-1">
+              {folders.map((folder) => (
+                <button
+                  key={folder.id}
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
+                    folder.id === 'all' 
+                      ? 'bg-purple-50 text-purple-700 font-medium' 
+                      : 'text-gray-600 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">{folder.icon}</span>
+                    <span>{folder.name}</span>
+                  </div>
+                  <span className={`text-xs px-2 py-0.5 rounded-full ${
+                    folder.id === 'all' 
+                      ? 'bg-purple-100 text-purple-700' 
+                      : 'bg-gray-100 text-gray-600'
+                  }`}>
+                    {folder.count}
+                  </span>
+                </button>
+              ))}
+            </div>
+            
+            <div className="mt-6 pt-4 border-t">
+              <h3 className="font-semibold text-sm text-gray-700 mb-3">QUICK FILTERS</h3>
+              <div className="space-y-1">
+                <button className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50">
+                  <Star className="h-4 w-4" />
+                  <span>Favorites</span>
+                </button>
+                <button className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50">
+                  <Lock className="h-4 w-4" />
+                  <span>Password Protected</span>
+                </button>
+                <button className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50">
+                  <Calendar className="h-4 w-4" />
+                  <span>Expiring Soon</span>
+                </button>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1">
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
         <Card className="p-6">
@@ -174,6 +249,7 @@ export default function DashboardPage() {
         <Table>
           <TableHeader>
             <TableRow>
+              <TableHead className="w-12"></TableHead>
               <TableHead>Short URL</TableHead>
               <TableHead>Original URL</TableHead>
               <TableHead className="text-center">Clicks</TableHead>
@@ -185,6 +261,11 @@ export default function DashboardPage() {
           <TableBody>
             {links.map((link) => (
               <TableRow key={link.id}>
+                <TableCell>
+                  <button className="hover:text-yellow-500 transition-colors">
+                    <Star className={`h-4 w-4 ${link.isFavorite ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
+                  </button>
+                </TableCell>
                 <TableCell>
                   <div className="flex items-center gap-2">
                     <span className="font-medium text-purple-600">
@@ -261,6 +342,8 @@ export default function DashboardPage() {
           <Button variant="outline" size="sm">
             Next
           </Button>
+        </div>
+        </div>
         </div>
       </div>
     </div>

@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Link2, QrCode, BarChart3, Shield, Zap, Globe } from "lucide-react";
+import { Link2, QrCode, BarChart3, Shield, Zap, Globe, Target, TrendingUp, ExternalLink } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   return (
@@ -107,6 +108,124 @@ export default function Home() {
                   <p className="text-sm text-gray-500">Track clicks and visitor data</p>
                 </div>
                 <Switch defaultChecked />
+              </div>
+            </div>
+          </details>
+
+          {/* UTM Parameter Builder */}
+          <details className="border rounded-lg p-4 bg-gradient-to-br from-blue-50 to-purple-50">
+            <summary className="cursor-pointer font-semibold text-gray-700 flex items-center justify-between">
+              <span className="flex items-center gap-2">
+                <Target className="h-5 w-5 text-blue-600" />
+                UTM Campaign Builder
+              </span>
+              <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100">Marketing</Badge>
+            </summary>
+            
+            <div className="mt-6 space-y-4">
+              <p className="text-sm text-gray-600 mb-4">
+                Add UTM parameters to track your marketing campaigns in Google Analytics
+              </p>
+
+              {/* UTM Source */}
+              <div className="space-y-2">
+                <Label htmlFor="utm-source">
+                  Campaign Source <span className="text-red-500">*</span>
+                </Label>
+                <Input 
+                  id="utm-source"
+                  placeholder="e.g., google, newsletter, facebook" 
+                  className="bg-white"
+                />
+                <p className="text-xs text-gray-500">Identify the advertiser, site, or publication</p>
+              </div>
+
+              {/* UTM Medium */}
+              <div className="space-y-2">
+                <Label htmlFor="utm-medium">
+                  Campaign Medium <span className="text-red-500">*</span>
+                </Label>
+                <Select>
+                  <SelectTrigger className="bg-white">
+                    <SelectValue placeholder="Select medium" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="cpc">CPC (Cost Per Click)</SelectItem>
+                    <SelectItem value="email">Email</SelectItem>
+                    <SelectItem value="social">Social</SelectItem>
+                    <SelectItem value="organic">Organic</SelectItem>
+                    <SelectItem value="referral">Referral</SelectItem>
+                    <SelectItem value="display">Display</SelectItem>
+                    <SelectItem value="custom">Custom</SelectItem>
+                  </SelectContent>
+                </Select>
+                <p className="text-xs text-gray-500">Marketing or advertising medium</p>
+              </div>
+
+              {/* UTM Campaign */}
+              <div className="space-y-2">
+                <Label htmlFor="utm-campaign">
+                  Campaign Name <span className="text-red-500">*</span>
+                </Label>
+                <Input 
+                  id="utm-campaign"
+                  placeholder="e.g., summer_sale, product_launch" 
+                  className="bg-white"
+                />
+                <p className="text-xs text-gray-500">Product, promo code, or slogan</p>
+              </div>
+
+              {/* UTM Term */}
+              <div className="space-y-2">
+                <Label htmlFor="utm-term">Campaign Term (Optional)</Label>
+                <Input 
+                  id="utm-term"
+                  placeholder="e.g., running+shoes" 
+                  className="bg-white"
+                />
+                <p className="text-xs text-gray-500">Identify paid search keywords</p>
+              </div>
+
+              {/* UTM Content */}
+              <div className="space-y-2">
+                <Label htmlFor="utm-content">Campaign Content (Optional)</Label>
+                <Input 
+                  id="utm-content"
+                  placeholder="e.g., banner_ad, text_link" 
+                  className="bg-white"
+                />
+                <p className="text-xs text-gray-500">Differentiate similar content or links</p>
+              </div>
+
+              {/* Generated URL Preview */}
+              <div className="bg-white border border-blue-200 rounded-lg p-4 mt-4">
+                <div className="flex items-start justify-between mb-2">
+                  <Label className="text-sm font-semibold text-gray-700">Generated URL Preview</Label>
+                  <ExternalLink className="h-4 w-4 text-gray-400" />
+                </div>
+                <p className="text-xs text-gray-600 break-all font-mono bg-gray-50 p-2 rounded">
+                  https://example.com/?utm_source=google&utm_medium=cpc&utm_campaign=summer_sale
+                </p>
+              </div>
+
+              {/* Quick Templates */}
+              <div className="mt-4">
+                <Label className="text-sm font-semibold mb-2 block">Quick Templates</Label>
+                <div className="flex gap-2 flex-wrap">
+                  <Button variant="outline" size="sm" className="text-xs">
+                    <TrendingUp className="h-3 w-3 mr-1" />
+                    Facebook Ad
+                  </Button>
+                  <Button variant="outline" size="sm" className="text-xs">
+                    📧 Email Campaign
+                  </Button>
+                  <Button variant="outline" size="sm" className="text-xs">
+                    🐦 Twitter Post
+                  </Button>
+                  <Button variant="outline" size="sm" className="text-xs">
+                    📱 Instagram Bio
+                  </Button>
+                </div>
               </div>
             </div>
           </details>
